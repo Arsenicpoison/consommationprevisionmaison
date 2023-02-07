@@ -9,8 +9,12 @@
                     <div class="card-body">
                         <h3 class="card-title text-white text-center">Total Previsions</h3>
                         <div class="d-inline-block">
-                            <h2 class="text-white"> 500</h2>
-                            <p class="text-white mb-0">Feb 2023</p>
+                            <h4 class="text-white">
+                                Total Price: {{ total }}
+                            </h4>
+                            <h4 class="text-white">
+                                Total Items: {{ total_prevision }}
+                            </h4>
                         </div>
                         <span class="float-right display-5 opacity-5"></span>
                     </div>
@@ -21,8 +25,12 @@
                     <div class="card-body">
                         <h3 class="card-title text-white text-center">Total Achat</h3>
                         <div class="d-inline-block">
-                            <h2 class="text-white">4000</h2>
-                            <p class="text-white mb-0">Jan 2019</p>
+                            <h4 class="text-white">
+                                Total Price: {{totale}}
+                            </h4>
+                            <h4 class="text-white">
+                                Total Items: {{ total_acheter }}
+                            </h4>
                         </div>
                         <span class="float-right display-5 opacity-5"></span>
                     </div>
@@ -31,173 +39,100 @@
 
         </div>
         {% load static %}
-        <h4>Previsions</h4>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h2 class="card-title">Previsions</h2>
+                        <div class="card-header py-3">
+                            <form action="{% url 'home' %}" method="POST">
+                                FROM: {% csrf_token %}
+                                <input type="date" name="start_date"> To:
+                                <input type="date" name="end_date">
+                                <button type="submit">SEARCH</button>
+
+                            </form>
+
+
+                        </div>
+
+                        <div class="table-responsive ">
+                            <table class="table table-striped table-bordered zero-configuration ">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th> Product Name</th>
+                                        <th> Quantite </th>
+                                        <th> Update_Price</th>
+                                        <th> DATE</th>
+                                        <th> Total_Price</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for prevision in previsions %}
+                                    <tr>
+                                        <td>{{ prevision.id }}</td>
+                                        <td>{{ prevision.product.product_name}}</td>
+                                        <td>{{ prevision.quantite }}</td>
+                                        <td>{{ prevision.update_price }}</td>
+                                        <td>{{ prevision.date}}</td>
+                                        <td>{{ prevision.total_price }}</td>
+                                        <td>
+                                            {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="active-member">
+                        <h2 class="card-title">Achat</h2>
+                        <div class="card-header py-3">
                             <div class="table-responsive">
-                                <table class="table table-xs mb-0">
+                                <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                         <tr>
-                                            <th>Produits</th>
-                                            <th>Quantite</th>
-                                            <th>Prix</th>
-                                            <th>Date d'achat</th>
-
+                                            <th>Id</th>
+                                            <th> Product Name</th>
+                                            <th> Quantite </th>
+                                            <th> Update_Price</th>
+                                            <th> DATE</th>
+                                            <th> Total_Price</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for acheter in acheters %}
                                         <tr>
-                                            <td>iPhone X</td>
+                                            <td>{{ acheter.id }}</td>
+                                            <td>{{ acheter.product.product_name}}</td>
+                                            <td>{{ acheter.quantite }}</td>
+                                            <td>{{ acheter.update_price }}</td>
+                                            <td>{{ acheter.date}}</td>
+                                            <td>{{ acheter.total_price }}</td>
                                             <td>
-                                                <span>United States</span>
-                                            </td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Pixel 2</td>
-                                            <td><span>Canada</span></td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>OnePlus</td>
-                                            <td><span>Germany</span></td>
-
-                                            <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Galaxy</td>
-                                            <td><span>Japan</span></td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moto Z2</td>
-                                            <td><span>England</span></td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Notebook Asus</td>
-                                            <td><span>China</span></td>
-
-                                            <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
+                                        {% endfor %}
                                     </tbody>
+
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+            <!-- #/ container -->
         </div>
-        <h4>Achats</h4>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="active-member">
-                            <div class="table-responsive">
-                                <table class="table table-xs mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Produits</th>
-                                            <th>Quantite</th>
-                                            <th>Prix</th>
-                                            <th>Date d'achat</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>iPhone X</td>
-                                            <td>
-                                                <span>United States</span>
-                                            </td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pixel 2</td>
-                                            <td><span>Canada</span></td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>OnePlus</td>
-                                            <td><span>Germany</span></td>
-
-                                            <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Galaxy</td>
-                                            <td><span>Japan</span></td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moto Z2</td>
-                                            <td><span>England</span></td>
-
-                                            <td><i class="fa fa-circle-o text-success  mr-2"></i> Paid</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Notebook Asus</td>
-                                            <td><span>China</span></td>
-
-                                            <td><i class="fa fa-circle-o text-warning  mr-2"></i> Pending</td>
-                                            <td>
-                                                <span>10/01/2023</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- #/ container -->
-    </div>
-    {% endblock %}
+        {% endblock %}
