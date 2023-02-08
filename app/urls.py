@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from app.views import home,categories,product,previsions,acheter
+from app.views import home,categories,product,previsions,acheter,user
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('',home.index,name='home'),
+    path ('home/', home.index, name ='home'),
+    path('', user.user_login, name='user_login'),
+    path('logout/', user.user_logout, name='logout'),
 
     path('categories/', categories.index, name='categories_index'),
     path('categories/add', categories.add, name='categories_add'),
@@ -48,6 +50,8 @@ urlpatterns = [
     path('acheter/getUnitPrice', acheter.getUnitPrice, name='getUnitPrice'),
     path('acheter/edit/<int:id>', acheter.edit, name='acheter_edit'),
     path('acheter/delete/<int:id>',acheter.delete,name='acheter_delete'),
+
+    
 
 
 
