@@ -18,9 +18,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title">products</h2>
+                        <h2 class="card-title">List of previsions</h2>
                         <div class="card-header py-3">
-                            <a href="{% url 'previsions_add' %}" class="btn btn-primary">New product</a
+                            <a href="{% url 'previsions_add' %}" class="btn btn-primary">New prevision</a
                                 >
                               </div>
                                {% comment %} {% if messages %}
@@ -45,8 +45,8 @@
                                         <tr>
                                           <th>Id</th>
                                           <th> Product Name</th>                                            
-                                          <th> Quantite </th>                                          
-                                          <th> Update_Price</th>
+                                          <th> Quantity </th>                                          
+                                          <th> Unit_Price</th>
                                           <th> DATE</th>                                                   
                                           <th> Total_Price</th>                                                  
                                           <th>EDIT</th>                                          
@@ -59,7 +59,7 @@
                                           <td>{{ prevu.id }}</td>                                      
                                           <td>{{ prevu.product.product_name}}</td>                                          
                                           <td>{{ prevu.quantite }}</td>
-                                          <td>{{ prevu.update_price }}</td>
+                                          <td>{{ prevu.unit_price }}</td>
                                           <td>{{ prevu.date}}</td>
                                           <td>{{ prevu.total_price }}</td>
                                           <td>
