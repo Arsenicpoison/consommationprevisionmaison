@@ -42,7 +42,7 @@ urlpatterns = [
     path('previsions/edit/<int:id>', previsions.edit, name='previsions_edit'),
     path('previsions/delete/<int:id>', previsions.delete, name='previsions_delete'),
     path('previsions/getProducts', previsions.getProducts, name='previsions_getProducts'),
-    path('previsions/getProduct', previsions.getProduct, name='previsions_getProduct'),
+    
 
     path('acheter/',acheter.index,name='acheter_index'),
     path('acheter/add',acheter.add,name='acheter_add'),
