@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from app.views import home,categories,product,previsions,acheter,user
+from app.views import home,categories,product,previsions,acheter,user,prints
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -41,18 +41,20 @@ urlpatterns = [
     path('previsions/update/<int:id>', previsions.update, name="previsions_update"),
     path('previsions/edit/<int:id>', previsions.edit, name='previsions_edit'),
     path('previsions/delete/<int:id>', previsions.delete, name='previsions_delete'),
+    path('previsions/getProducts', previsions.getProducts, name='previsions_getProducts'),
+    path('previsions/getProduct', previsions.getProduct, name='previsions_getProduct'),
 
     path('acheter/',acheter.index,name='acheter_index'),
     path('acheter/add',acheter.add,name='acheter_add'),
     path('acheter/store',acheter.store,name='acheter_store'),
     path('acheter/update/<int:id>', acheter.update, name="acheter_update"),
     path('acheter/getProducts', acheter.getProducts, name='getProducts'),
-    path('acheter/getUnitPrice', acheter.getUnitPrice, name='getUnitPrice'),
     path('acheter/edit/<int:id>', acheter.edit, name='acheter_edit'),
     path('acheter/delete/<int:id>',acheter.delete,name='acheter_delete'),
 
-    
-
-
+   
+    path('print/previsions', prints.printprevisions, name= 'print_previsions'),
+    # path('print/consommations', prints.printconsommations, name= 'print_consommations'),
+    # path('print/resume', prints.resume, name= 'print_resume'),
 
 ]
