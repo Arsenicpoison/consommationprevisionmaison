@@ -18,9 +18,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Achat</h2>
+                        <h2 class="card-title">List of Consommations</h2>
                         <div class="card-header py-3">
-                            <a href="{% url 'acheter_add' %}" class="btn btn-primary">Nouvelle achat</a
+                            <a href="{% url 'acheter_add' %}" class="btn btn-primary">Nouvelle Consommation</a
                                 >
                               </div>
                                {% comment %} {% if messages %}
@@ -46,8 +46,8 @@
                                           <tr>
                                             <th>Id</th>
                                             <th> Product Name</th>                                            
-                                            <th> Quantite </th>                                          
-                                            <th> Update_Price</th>
+                                            <th> Quantity </th>                                          
+                                            <th> Unit_Price</th>
                                             <th> DATE</th>                                                   
                                             <th> Total_Price</th>                                                  
                                             <th>EDIT</th>                                          
@@ -77,7 +77,7 @@
 
                                           <td>
                                             <form
-                                              action="{% url 'previsions_delete' achat.id %}"
+                                              action="{% url 'acheter_delete' achat.id %}"
                                               method="post"
                                             >
                                               {% csrf_token %}
