@@ -40,17 +40,6 @@ def getProducts(request):
             'products': products
         }
     )
-    
-def getUnitPrice(request):
-    id_product = request.GET.get('id_product')
-    product = Product.objects.get(pk=id_product)
-    return render(
-        request,
-        'app/acheter/getUnitPrice.html',
-        {
-            'product': product
-        }
-    )
 
 def update(request, id):
     if request.method == 'POST':
