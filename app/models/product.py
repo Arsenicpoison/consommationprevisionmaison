@@ -10,3 +10,10 @@ class Product(models.Model):
 
   def __str__(self) -> str:
       return self.product_name +" " +str(self.category)
+  class Meta :
+        constraints = [
+            models.UniqueConstraint(
+                fields = ['product_name'],
+                name = 'unique_product'
+            )
+        ]
