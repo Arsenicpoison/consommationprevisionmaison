@@ -75,8 +75,8 @@
         <div class="col-12 ">
             <div class="card ">
                 <div class="card-body ">
+                    <h4 class="card-title ">PREVISIONS </h4>
 
-                    <!-- <h4 class="card-title ">PREVISIONS DU {{start_date}} AU {{end_date}}</h4> -->
                     <div class="card-header py-3 ">
 
                     </div>
@@ -100,7 +100,7 @@
                                     <td>{{ prevision.id }}</td>
                                     <td>{{ prevision.product.product_name}}</td>
                                     <td>{{ prevision.quantite }}</td>
-                                    <td>{{ prevision.update_price }}</td>
+                                    <td>{{ prevision.unit_price }}</td>
                                     <td>{{ prevision.date}}</td>
                                     <td>{{ prevision.total_price }}</td>
                                     <td>
@@ -117,7 +117,7 @@
         <div class="col-lg-12 ">
             <div class="card ">
                 <div class="card-body ">
-                    <!-- <h4>CONSOMMATION DU {{start_date}} AU {{end_date}}</h4> -->
+                    <h4>CONSOMMATION </h4>
                     <div class="card-header py-3 ">
                         <div class="table-responsive ">
                             <table class="table table-striped table-bordered zero-configuration ">
@@ -138,7 +138,7 @@
                                         <td>{{ acheter.id }}</td>
                                         <td>{{ acheter.product.product_name}}</td>
                                         <td>{{ acheter.quantite }}</td>
-                                        <td>{{ acheter.update_price }}</td>
+                                        <td>{{ acheter.unit_price }}</td>
                                         <td>{{ acheter.date}}</td>
                                         <td>{{ acheter.total_price }}</td>
                                         <td>
